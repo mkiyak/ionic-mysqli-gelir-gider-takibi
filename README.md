@@ -1,0 +1,1 @@
+# ionic-mysqli-gelir-gider-takibi
