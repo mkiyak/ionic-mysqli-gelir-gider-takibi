@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kategori Edit</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Kategori Adı</ion-label>
+      <ion-input type="text" [(ngModel)]="category_name"></ion-input>
+    </ion-item>
+
+    <ion-button *ngIf="id==0" expand="full" (click)="CategoryAction('Create')" [disabled]="disabledbutton">Kaydet</ion-button>
+    <ion-button *ngIf="id!=0" expand="full" (click)="CategoryAction('Update')" [disabled]="disabledbutton">Güncelle</ion-button>
+
+  </ion-list>
+
+</ion-content>

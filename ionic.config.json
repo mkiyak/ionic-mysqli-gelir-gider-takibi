@@ -1,0 +1,7 @@
+{
+  "name": "ion-mysql",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

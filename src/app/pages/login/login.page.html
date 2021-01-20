@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-padding">
+    <ion-item>
+      <ion-label positin="floating">E-Mail</ion-label>
+      <ion-input type="email" [(ngModel)] = "email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label positin="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)] = "password"></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="tryLogin()"> Go</ion-button>
+    <p class="registration-info">Hesabın yok mu ? <span (click)="openRegistration()">Kayıt Ol</span></p>
+  </ion-list>
+
+</ion-content>

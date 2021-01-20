@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>İşlem Kaydı</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Açıklama</ion-label>
+      <ion-textarea [(ngModel)]="aciklama"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>İşlem Tarihi</ion-label>
+      <ion-datetime displayFormat="DD MM YYYY" [(ngModel)]="islem_tarihi"></ion-datetime>
+    </ion-item>
+    
+    <ion-item *ngIf="islem=='gider'" >
+      <ion-label>Masraf Kalemi</ion-label>
+      <ion-select placeholder="Masraf Kalemi Seç" [(ngModel)] = "category_id">
+        <ion-select-option value="{{row.category_id}}"  *ngFor="let row of categories">{{row.category_name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Tutar</ion-label>
+      <ion-input type="text" [(ngModel)]="tutar"> </ion-input>
+    </ion-item>
+
+
+    <ion-label class="button">
+      <ion-button *ngIf="id==0" expand="full" (click)="Edit('Create')" [disabled]="disabledbutton">Kaydet</ion-button>
+      <ion-button *ngIf="id!=0" expand="full" (click)="Edit('Update')" [disabled]="disabledbutton">Güncelle</ion-button>
+    </ion-label>
+
+  </ion-list>
+
+</ion-content>

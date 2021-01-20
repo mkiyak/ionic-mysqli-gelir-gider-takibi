@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kayıt Ol</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Ad Soyad</ion-label>
+      <ion-input type="text" [(ngModel)]="fullname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Cinsiyet</ion-label>
+      <ion-select placeholder="Cinsiyet Seç" [(ngModel)] = "gender">
+        <ion-select-option value="m">Erkek</ion-select-option>
+        <ion-select-option value="w">Kadın</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Doğum Tarihi</ion-label>
+      <ion-datetime displayFormat="DD MM YYYY" placeolder="Date of birth" [(ngModel)]="datebirth"></ion-datetime>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">E-Posta</ion-label>
+      <ion-input type="email" [(ngModel)]="email"> </ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Şifre</ion-label>
+      <ion-input type="password" [(ngModel)]="password"> </ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Şifre Tekrar</ion-label>
+      <ion-input type="password" [(ngModel)]="passwordconfirm"> </ion-input>
+    </ion-item>
+    
+    <ion-button expand="full" (click)="tryRegistration()" [disabled]="disabledbutton">Kaydet</ion-button>
+
+  </ion-list>
+</ion-content>

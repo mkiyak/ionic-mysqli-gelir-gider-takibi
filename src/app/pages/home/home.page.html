@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Merhaba, {{name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="tryLogout()">
+        <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+
+<ion-content>
+  <ion-label class="buttonlar">
+    <ion-button color="primary" shape="round" fill="outline" size="small" (click)="userPage()">
+      <ion-icon name="accessibility-outline"></ion-icon> Kullanıcılar
+    </ion-button>
+    <ion-button color="danger" shape="round"  slot="end" name="star" size="small" fill="outline" (click)="categoryPage()">
+      <ion-icon name="create-outline"></ion-icon> Masraf Kalemleri
+    </ion-button>
+  </ion-label>
+
+  <ion-list><br>
+    <ion-label>
+      <span class="baslik">Giderler</span>
+      <span class="tumunu-gor-button" (click)="GelirGiderList('gider')">Tümünü Gör <ion-icon name="chevron-forward-outline"></ion-icon></span>
+    </ion-label>
+    
+    <ion-item-sliding *ngFor="let gider of giderlist">
+      <ion-item>
+        <ion-label class="aciklama">{{gider.aciklama}}</ion-label>
+        <span vertical="right" class="islem-tutari">{{gider.tutar}} TL</span>
+      </ion-item>
+      <ion-item-options slide="end">
+        <ion-item-option (click)="openIslem(gider.islem_id)" color="success"><ion-icon name="scan-circle-outline"></ion-icon></ion-item-option>
+        <ion-item-option (click)="EditIslem(gider.islem_id,'gider')"><ion-icon name="create-outline"></ion-icon></ion-item-option>
+        <ion-item-option (click)="GelirGiderDelete(gider.islem_id)" color="danger"><ion-icon name="close-outline"></ion-icon></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    
+    <ion-label>
+      <span class="baslik">Gelirler</span>
+      <span class="tumunu-gor-button" (click)="GelirGiderList('gelir')">Tümünü Gör <ion-icon name="chevron-forward-outline"></ion-icon></span>
+    </ion-label>
+    
+    <ion-item-sliding *ngFor="let gelir of gelirlist">
+      <ion-item>
+        <ion-label class="aciklama">{{gelir.aciklama}}</ion-label>
+        <span vertical="right" class="islem-tutari">{{gelir.tutar}} TL</span>
+      </ion-item>
+      <ion-item-options slide="end">
+        <ion-item-option (click)="openIslem(gelir.islem_id)" color="success"><ion-icon name="scan-circle-outline"></ion-icon></ion-item-option>
+        <ion-item-option (click)="EditIslem(gelir.islem_id,'gelir')"><ion-icon name="create-outline"></ion-icon></ion-item-option>
+        <ion-item-option (click)="GelirGiderDelete(gelir.islem_id)" color="danger"><ion-icon name="close-outline"></ion-icon></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-list>
+    
+  </ion-list>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown"></ion-refresher-content>
+  </ion-refresher>
+
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <p><span class="toplam-kazanc">Toplam Kazanç : </span> <span class="toplam-kazanc-tutar">{{toplam_kazanc}} TL</span></p>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>İşlem İçeriği</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-padding">
+    <ion-label class="icerik_co">
+      <ion-label positin="floating">İşlem Tarihi :</ion-label>
+      <span class="icerik">{{islem_tarihi}}</span>
+    </ion-label>
+    <ion-label class="icerik_co">
+      <ion-label positin="floating">Kullanıcı :</ion-label>
+      <span class="icerik">{{kullanici_adi}}</span>
+    </ion-label>    
+    <ion-label *ngIf="islem==0" class="icerik_co">
+      <ion-label positin="floating">Masraf Kalemi :</ion-label>
+      <span class="icerik">{{kategori_adi}}</span>
+    </ion-label>
+    <ion-label class="icerik_co">
+      <ion-label positin="floating">Açıklama :</ion-label>
+      <span class="icerik">{{aciklama}}</span>
+    </ion-label>
+    <ion-label class="icerik_co">
+      <ion-label positin="floating">Tutar :</ion-label>
+      <span class="icerik">{{tutar}} TL</span>
+    </ion-label>
+  </ion-list>
+
+</ion-content>
